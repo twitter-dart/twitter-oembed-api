@@ -14,7 +14,7 @@ _$_EmbeddedContent _$$_EmbeddedContentFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$_EmbeddedContent(
           url: $checkedConvert('url', (v) => v as String),
-          title: $checkedConvert('title', (v) => v as String),
+          title: $checkedConvert('title', (v) => v as String?),
           html: $checkedConvert('html', (v) => v as String),
           width: $checkedConvert('width', (v) => v as int?),
           height: $checkedConvert('height', (v) => v as int?),

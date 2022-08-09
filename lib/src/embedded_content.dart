@@ -13,7 +13,7 @@ part 'embedded_content.g.dart';
 class EmbeddedContent with _$EmbeddedContent {
   const factory EmbeddedContent({
     required String url,
-    required String title,
+    String? title,
     required String html,
     int? width,
     int? height,

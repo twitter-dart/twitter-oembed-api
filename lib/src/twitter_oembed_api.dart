@@ -18,7 +18,7 @@ abstract class TwitterOembedApi {
   ///
   /// ## Parameters
   ///
-  /// - [url]: The URL of the Tweet to be embedded
+  /// - [tweetId]: The Tweet ID to be embedded.
   ///
   /// - [maxWidth]: The maximum width of a rendered Tweet in whole pixels.
   ///               A supplied value under or over the allowed range will be
@@ -73,7 +73,7 @@ abstract class TwitterOembedApi {
   ///
   /// - https://developer.twitter.com/en/docs/twitter-for-websites/oembed-api#item1
   Future<EmbeddedContent> publishEmbeddedTweet({
-    required String url,
+    required String tweetId,
     int? maxWidth,
     bool? hideMedia,
     bool? hideThread,
@@ -93,7 +93,7 @@ abstract class TwitterOembedApi {
 class _TwitterOembedApi extends BaseService implements TwitterOembedApi {
   @override
   Future<EmbeddedContent> publishEmbeddedTweet({
-    required String url,
+    required String tweetId,
     int? maxWidth,
     bool? hideMedia,
     bool? hideThread,
@@ -106,7 +106,22 @@ class _TwitterOembedApi extends BaseService implements TwitterOembedApi {
     ContentWidgetType? widgetType,
     bool? dnt,
   }) async {
-    final response = await super.get();
+    final response = await super.get(
+      queryParameters: {
+        'url': 'https://twitter.com/Interior/status/$tweetId',
+        'maxwidth': maxWidth,
+        'hide_media': hideMedia,
+        'hide_thread': hideThread,
+        'omit_script': omitScript,
+        'align': align,
+        'related': relatedUsernames,
+        'lang': lang,
+        'theme': theme,
+        'link_color': linkColor,
+        'widget_type': widgetType,
+        'dnt': dnt,
+      },
+    );
 
     return EmbeddedContent.fromJson(
       jsonDecode(response.body),

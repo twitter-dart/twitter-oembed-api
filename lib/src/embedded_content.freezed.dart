@@ -21,7 +21,7 @@ EmbeddedContent _$EmbeddedContentFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EmbeddedContent {
   String get url => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   String get html => throw _privateConstructorUsedError;
   int? get width => throw _privateConstructorUsedError;
   int? get height => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $EmbeddedContentCopyWith<$Res> {
       _$EmbeddedContentCopyWithImpl<$Res>;
   $Res call(
       {String url,
-      String title,
+      String? title,
       String html,
       int? width,
       int? height,
@@ -85,7 +85,7 @@ class _$EmbeddedContentCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       html: html == freezed
           ? _value.html
           : html // ignore: cast_nullable_to_non_nullable
@@ -131,7 +131,7 @@ abstract class _$$_EmbeddedContentCopyWith<$Res>
   @override
   $Res call(
       {String url,
-      String title,
+      String? title,
       String html,
       int? width,
       int? height,
@@ -174,7 +174,7 @@ class __$$_EmbeddedContentCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       html: html == freezed
           ? _value.html
           : html // ignore: cast_nullable_to_non_nullable
@@ -216,7 +216,7 @@ class __$$_EmbeddedContentCopyWithImpl<$Res>
 class _$_EmbeddedContent implements _EmbeddedContent {
   const _$_EmbeddedContent(
       {required this.url,
-      required this.title,
+      this.title,
       required this.html,
       this.width,
       this.height,
@@ -232,7 +232,7 @@ class _$_EmbeddedContent implements _EmbeddedContent {
   @override
   final String url;
   @override
-  final String title;
+  final String? title;
   @override
   final String html;
   @override
@@ -305,7 +305,7 @@ class _$_EmbeddedContent implements _EmbeddedContent {
 abstract class _EmbeddedContent implements EmbeddedContent {
   const factory _EmbeddedContent(
       {required final String url,
-      required final String title,
+      final String? title,
       required final String html,
       final int? width,
       final int? height,
@@ -321,7 +321,7 @@ abstract class _EmbeddedContent implements EmbeddedContent {
   @override
   String get url;
   @override
-  String get title;
+  String? get title;
   @override
   String get html;
   @override
