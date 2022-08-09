@@ -9,7 +9,8 @@ import 'content_align.dart';
 import 'content_language.dart';
 import 'content_theme.dart';
 import 'content_widget_type.dart';
-import 'embedded_content.dart';
+import 'embedded_tweet.dart';
+import 'twitter_oembed_exception.dart';
 
 abstract class TwitterOembedApi {
   factory TwitterOembedApi() => _TwitterOembedApi();
@@ -72,7 +73,7 @@ abstract class TwitterOembedApi {
   /// ## Reference
   ///
   /// - https://developer.twitter.com/en/docs/twitter-for-websites/oembed-api#item1
-  Future<EmbeddedContent> publishEmbeddedTweet({
+  Future<EmbeddedTweet> publishEmbeddedTweet({
     required String tweetId,
     int? maxWidth,
     bool? hideMedia,
@@ -87,12 +88,12 @@ abstract class TwitterOembedApi {
     bool? dnt,
   });
 
-  Future<EmbeddedContent> publishEmbeddedTimeline();
+  Future<EmbeddedTweet> publishEmbeddedTimeline();
 }
 
 class _TwitterOembedApi extends BaseService implements TwitterOembedApi {
   @override
-  Future<EmbeddedContent> publishEmbeddedTweet({
+  Future<EmbeddedTweet> publishEmbeddedTweet({
     required String tweetId,
     int? maxWidth,
     bool? hideMedia,
@@ -123,16 +124,22 @@ class _TwitterOembedApi extends BaseService implements TwitterOembedApi {
       },
     );
 
-    return EmbeddedContent.fromJson(
+    if (response.statusCode != 200) {
+      throw TwitterOEmbedException(
+        'There is no tweet associated with the tweet ID [$tweetId].',
+      );
+    }
+
+    return EmbeddedTweet.fromJson(
       jsonDecode(response.body),
     );
   }
 
   @override
-  Future<EmbeddedContent> publishEmbeddedTimeline() async {
+  Future<EmbeddedTweet> publishEmbeddedTimeline() async {
     final response = await super.get();
 
-    return EmbeddedContent.fromJson(
+    return EmbeddedTweet.fromJson(
       jsonDecode(response.body),
     );
   }
