@@ -20,16 +20,10 @@ EmbeddedTweet _$EmbeddedTweetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbeddedTweet {
-  String get url => throw _privateConstructorUsedError;
   String get html => throw _privateConstructorUsedError;
-  int? get width => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  String get cacheAge => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
   String get authorName => throw _privateConstructorUsedError;
   String get authorUrl => throw _privateConstructorUsedError;
-  String get providerName => throw _privateConstructorUsedError;
-  String get providerUrl => throw _privateConstructorUsedError;
-  String get version => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,17 +36,7 @@ abstract class $EmbeddedTweetCopyWith<$Res> {
   factory $EmbeddedTweetCopyWith(
           EmbeddedTweet value, $Res Function(EmbeddedTweet) then) =
       _$EmbeddedTweetCopyWithImpl<$Res>;
-  $Res call(
-      {String url,
-      String html,
-      int? width,
-      String type,
-      String cacheAge,
-      String authorName,
-      String authorUrl,
-      String providerName,
-      String providerUrl,
-      String version});
+  $Res call({String html, String url, String authorName, String authorUrl});
 }
 
 /// @nodoc
@@ -66,37 +50,19 @@ class _$EmbeddedTweetCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? url = freezed,
     Object? html = freezed,
-    Object? width = freezed,
-    Object? type = freezed,
-    Object? cacheAge = freezed,
+    Object? url = freezed,
     Object? authorName = freezed,
     Object? authorUrl = freezed,
-    Object? providerName = freezed,
-    Object? providerUrl = freezed,
-    Object? version = freezed,
   }) {
     return _then(_value.copyWith(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
       html: html == freezed
           ? _value.html
           : html // ignore: cast_nullable_to_non_nullable
               as String,
-      width: width == freezed
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      cacheAge: cacheAge == freezed
-          ? _value.cacheAge
-          : cacheAge // ignore: cast_nullable_to_non_nullable
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String,
       authorName: authorName == freezed
           ? _value.authorName
@@ -105,18 +71,6 @@ class _$EmbeddedTweetCopyWithImpl<$Res>
       authorUrl: authorUrl == freezed
           ? _value.authorUrl
           : authorUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      providerName: providerName == freezed
-          ? _value.providerName
-          : providerName // ignore: cast_nullable_to_non_nullable
-              as String,
-      providerUrl: providerUrl == freezed
-          ? _value.providerUrl
-          : providerUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: version == freezed
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -129,17 +83,7 @@ abstract class _$$_EmbeddedTweetCopyWith<$Res>
           _$_EmbeddedTweet value, $Res Function(_$_EmbeddedTweet) then) =
       __$$_EmbeddedTweetCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String url,
-      String html,
-      int? width,
-      String type,
-      String cacheAge,
-      String authorName,
-      String authorUrl,
-      String providerName,
-      String providerUrl,
-      String version});
+  $Res call({String html, String url, String authorName, String authorUrl});
 }
 
 /// @nodoc
@@ -155,37 +99,19 @@ class __$$_EmbeddedTweetCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? url = freezed,
     Object? html = freezed,
-    Object? width = freezed,
-    Object? type = freezed,
-    Object? cacheAge = freezed,
+    Object? url = freezed,
     Object? authorName = freezed,
     Object? authorUrl = freezed,
-    Object? providerName = freezed,
-    Object? providerUrl = freezed,
-    Object? version = freezed,
   }) {
     return _then(_$_EmbeddedTweet(
-      url: url == freezed
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
       html: html == freezed
           ? _value.html
           : html // ignore: cast_nullable_to_non_nullable
               as String,
-      width: width == freezed
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int?,
-      type: type == freezed
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      cacheAge: cacheAge == freezed
-          ? _value.cacheAge
-          : cacheAge // ignore: cast_nullable_to_non_nullable
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String,
       authorName: authorName == freezed
           ? _value.authorName
@@ -195,18 +121,6 @@ class __$$_EmbeddedTweetCopyWithImpl<$Res>
           ? _value.authorUrl
           : authorUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      providerName: providerName == freezed
-          ? _value.providerName
-          : providerName // ignore: cast_nullable_to_non_nullable
-              as String,
-      providerUrl: providerUrl == freezed
-          ? _value.providerUrl
-          : providerUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: version == freezed
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -215,44 +129,26 @@ class __$$_EmbeddedTweetCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EmbeddedTweet implements _EmbeddedTweet {
   const _$_EmbeddedTweet(
-      {required this.url,
-      required this.html,
-      this.width,
-      required this.type,
-      required this.cacheAge,
+      {required this.html,
+      required this.url,
       required this.authorName,
-      required this.authorUrl,
-      required this.providerName,
-      required this.providerUrl,
-      required this.version});
+      required this.authorUrl});
 
   factory _$_EmbeddedTweet.fromJson(Map<String, dynamic> json) =>
       _$$_EmbeddedTweetFromJson(json);
 
   @override
-  final String url;
-  @override
   final String html;
   @override
-  final int? width;
-  @override
-  final String type;
-  @override
-  final String cacheAge;
+  final String url;
   @override
   final String authorName;
   @override
   final String authorUrl;
-  @override
-  final String providerName;
-  @override
-  final String providerUrl;
-  @override
-  final String version;
 
   @override
   String toString() {
-    return 'EmbeddedTweet(url: $url, html: $html, width: $width, type: $type, cacheAge: $cacheAge, authorName: $authorName, authorUrl: $authorUrl, providerName: $providerName, providerUrl: $providerUrl, version: $version)';
+    return 'EmbeddedTweet(html: $html, url: $url, authorName: $authorName, authorUrl: $authorUrl)';
   }
 
   @override
@@ -260,35 +156,21 @@ class _$_EmbeddedTweet implements _EmbeddedTweet {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_EmbeddedTweet &&
-            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.html, html) &&
-            const DeepCollectionEquality().equals(other.width, width) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.cacheAge, cacheAge) &&
+            const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality()
                 .equals(other.authorName, authorName) &&
-            const DeepCollectionEquality().equals(other.authorUrl, authorUrl) &&
-            const DeepCollectionEquality()
-                .equals(other.providerName, providerName) &&
-            const DeepCollectionEquality()
-                .equals(other.providerUrl, providerUrl) &&
-            const DeepCollectionEquality().equals(other.version, version));
+            const DeepCollectionEquality().equals(other.authorUrl, authorUrl));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(html),
-      const DeepCollectionEquality().hash(width),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(cacheAge),
+      const DeepCollectionEquality().hash(url),
       const DeepCollectionEquality().hash(authorName),
-      const DeepCollectionEquality().hash(authorUrl),
-      const DeepCollectionEquality().hash(providerName),
-      const DeepCollectionEquality().hash(providerUrl),
-      const DeepCollectionEquality().hash(version));
+      const DeepCollectionEquality().hash(authorUrl));
 
   @JsonKey(ignore: true)
   @override
@@ -305,40 +187,22 @@ class _$_EmbeddedTweet implements _EmbeddedTweet {
 
 abstract class _EmbeddedTweet implements EmbeddedTweet {
   const factory _EmbeddedTweet(
-      {required final String url,
-      required final String html,
-      final int? width,
-      required final String type,
-      required final String cacheAge,
+      {required final String html,
+      required final String url,
       required final String authorName,
-      required final String authorUrl,
-      required final String providerName,
-      required final String providerUrl,
-      required final String version}) = _$_EmbeddedTweet;
+      required final String authorUrl}) = _$_EmbeddedTweet;
 
   factory _EmbeddedTweet.fromJson(Map<String, dynamic> json) =
       _$_EmbeddedTweet.fromJson;
 
   @override
-  String get url;
-  @override
   String get html;
   @override
-  int? get width;
-  @override
-  String get type;
-  @override
-  String get cacheAge;
+  String get url;
   @override
   String get authorName;
   @override
   String get authorUrl;
-  @override
-  String get providerName;
-  @override
-  String get providerUrl;
-  @override
-  String get version;
   @override
   @JsonKey(ignore: true)
   _$$_EmbeddedTweetCopyWith<_$_EmbeddedTweet> get copyWith =>

@@ -11,16 +11,10 @@ part 'embedded_tweet.g.dart';
 @freezed
 class EmbeddedTweet with _$EmbeddedTweet {
   const factory EmbeddedTweet({
-    required String url,
     required String html,
-    int? width,
-    required String type,
-    required String cacheAge,
+    required String url,
     required String authorName,
     required String authorUrl,
-    required String providerName,
-    required String providerUrl,
-    required String version,
   }) = _EmbeddedTweet;
 
   factory EmbeddedTweet.fromJson(Map<String, Object?> json) =>

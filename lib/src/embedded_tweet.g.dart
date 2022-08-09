@@ -13,38 +13,23 @@ _$_EmbeddedTweet _$$_EmbeddedTweetFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_EmbeddedTweet(
-          url: $checkedConvert('url', (v) => v as String),
           html: $checkedConvert('html', (v) => v as String),
-          width: $checkedConvert('width', (v) => v as int?),
-          type: $checkedConvert('type', (v) => v as String),
-          cacheAge: $checkedConvert('cache_age', (v) => v as String),
+          url: $checkedConvert('url', (v) => v as String),
           authorName: $checkedConvert('author_name', (v) => v as String),
           authorUrl: $checkedConvert('author_url', (v) => v as String),
-          providerName: $checkedConvert('provider_name', (v) => v as String),
-          providerUrl: $checkedConvert('provider_url', (v) => v as String),
-          version: $checkedConvert('version', (v) => v as String),
         );
         return val;
       },
       fieldKeyMap: const {
-        'cacheAge': 'cache_age',
         'authorName': 'author_name',
-        'authorUrl': 'author_url',
-        'providerName': 'provider_name',
-        'providerUrl': 'provider_url'
+        'authorUrl': 'author_url'
       },
     );
 
 Map<String, dynamic> _$$_EmbeddedTweetToJson(_$_EmbeddedTweet instance) =>
     <String, dynamic>{
-      'url': instance.url,
       'html': instance.html,
-      'width': instance.width,
-      'type': instance.type,
-      'cache_age': instance.cacheAge,
+      'url': instance.url,
       'author_name': instance.authorName,
       'author_url': instance.authorUrl,
-      'provider_name': instance.providerName,
-      'provider_url': instance.providerUrl,
-      'version': instance.version,
     };
