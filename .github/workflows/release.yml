@@ -18,7 +18,7 @@ jobs:
         with:
           status: |
             Hey what's up? 🍿 New version of #twitter_oembed_api was released! 🐦🐦🐦
-            Release note: https://github.com/twitter-dart/twitter-api-v2/blob/main/CHANGELOG.md
+            Release note: https://github.com/twitter-dart/twitter-oembed-api/blob/main/CHANGELOG.md
             #dart #twitter #flutter #FlutterDev #programming #100DaysOfCode #OSS #coding
             via #GitHub Actions https://github.com/twitter-dart/twitter-oembed-api
         env:
