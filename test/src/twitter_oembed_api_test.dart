@@ -5,11 +5,12 @@
 import 'package:test/test.dart';
 import 'package:twitter_oembed_api/src/twitter_oembed_api.dart';
 import 'package:twitter_oembed_api/src/twitter_oembed_exception.dart';
+import 'package:twitter_oembed_api/twitter_oembed_api.dart';
 
 void main() {
   group('.publishEmbeddedTweet', () {
     test('normal case', () async {
-      final twitterApi = TwitterOembedApi();
+      final twitterApi = TwitterOEmbedApi();
 
       final embeddedTweet = await twitterApi.publishEmbeddedTweet(
         tweetId: '507185938620219395',
@@ -26,12 +27,28 @@ void main() {
     });
 
     test('when tweet id is invalid', () {
-      final twitterApi = TwitterOembedApi();
+      final twitterApi = TwitterOEmbedApi();
 
       expect(
         () async => await twitterApi.publishEmbeddedTweet(tweetId: ''),
         throwsA(isA<TwitterOEmbedException>()),
       );
+    });
+  });
+
+  group('.publishEmbeddedTimeline', () {
+    test('normal case', () async {
+      final twitterApi = TwitterOEmbedApi();
+
+      final embeddedTimeline = await twitterApi.publishEmbeddedTimeline(
+        screenName: 'Twiterdev',
+      );
+
+      expect(
+          embeddedTimeline.html,
+          '<a class="twitter-timeline" href="https://twitter.com/Twiterdev?ref_src=twsrc%5Etfw">Tweets by Twiterdev</a>\n'
+          '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>\n');
+      expect(embeddedTimeline.url, 'https://twitter.com/Twiterdev');
     });
   });
 }

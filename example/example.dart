@@ -5,7 +5,7 @@
 import 'package:twitter_oembed_api/twitter_oembed_api.dart';
 
 Future<void> main() async {
-  final twitterApi = TwitterOembedApi();
+  final twitterApi = TwitterOEmbedApi();
 
   final embeddedTweet = await twitterApi.publishEmbeddedTweet(
     tweetId: '507185938620219395',

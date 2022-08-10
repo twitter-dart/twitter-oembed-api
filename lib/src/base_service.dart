@@ -43,28 +43,11 @@ class BaseService implements _Service {
 
   Map<String, String> _convertQueryParameters(
     final Map<String, dynamic> queryParameters,
-  ) {
-    final serializedParameters = queryParameters.map((key, value) {
-      if (value is List<Serializable>?) {
-        return MapEntry(
-          key,
-          value?.toSet().map((e) => e.value).toList().join(','),
-        );
-      } else if (value is List?) {
-        return MapEntry(
-          key,
-          value?.toSet().join(','),
-        );
-      }
-
-      return MapEntry(key, value);
-    });
-
-    return Map.from(_removeNullParameters(serializedParameters) ?? {}).map(
-      //! Uri.https(...) needs iterable in the value for query params by
-      //! which it means a String in the value of the Map too. So you need
-      //! to convert it from Map<String, dynamic> to Map<String, String>
-      (key, value) => MapEntry(key, value.toString()),
-    );
-  }
+  ) =>
+      Map.from(_removeNullParameters(queryParameters) ?? {}).map(
+        //! Uri.https(...) needs iterable in the value for query params by
+        //! which it means a String in the value of the Map too. So you need
+        //! to convert it from Map<String, dynamic> to Map<String, String>
+        (key, value) => MapEntry(key, value.toString()),
+      );
 }
