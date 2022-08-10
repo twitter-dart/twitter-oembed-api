@@ -8,7 +8,8 @@ import 'base_service.dart';
 import 'content_align.dart';
 import 'content_language.dart';
 import 'content_theme.dart';
-import 'content_widget_type.dart';
+import 'timeline_widget_type.dart';
+import 'tweet_widget_type.dart';
 import 'embedded_timeline.dart';
 import 'embedded_tweet.dart';
 import 'twitter_oembed_exception.dart';
@@ -64,7 +65,7 @@ abstract class TwitterOEmbedApi {
   /// - [linkColor]: Adjust the color of Tweet text links with a hexadecimal
   ///                color value.
   ///
-  /// - [widgetType]: Set to [ContentWidgetType.video] to return a Twitter
+  /// - [widgetType]: Set to [TweetWidgetType.video] to return a Twitter
   ///                 Video embed for the given Tweet.
   ///
   /// - [dnt]: When set to `true`, the Tweet and its embedded page on your site
@@ -85,7 +86,7 @@ abstract class TwitterOEmbedApi {
     ContentLanguage? lang,
     ContentTheme? theme,
     String? linkColor,
-    ContentWidgetType? widgetType,
+    TweetWidgetType? widgetType,
     bool? dnt,
   });
 
@@ -128,6 +129,9 @@ abstract class TwitterOEmbedApi {
   /// - [borderColor]: Set the color of widget component borders, including the
   ///                  border between Tweets, with a hexadecimal color value.
   ///
+  /// - [widgetType]: Collection timelines only. Set to `grid` to display Tweets
+  ///                 in a grid layout.
+  ///
   /// - [dnt]: When set to true, the timeline and its embedded page on your
   ///          site are not used for purposes that include
   ///          personalized suggestions and personalized ads.
@@ -146,7 +150,7 @@ abstract class TwitterOEmbedApi {
     List<String>? relatedScreenNames,
     ContentTheme? theme,
     String? borderColor,
-    ContentWidgetType? widgetType,
+    TimelineWidgetType? widgetType,
     bool? dnt,
   });
 }
@@ -164,7 +168,7 @@ class _TwitterOEmbedApi extends BaseService implements TwitterOEmbedApi {
     ContentLanguage? lang,
     ContentTheme? theme,
     String? linkColor,
-    ContentWidgetType? widgetType,
+    TweetWidgetType? widgetType,
     bool? dnt,
   }) async {
     final response = await super.get(
@@ -207,7 +211,7 @@ class _TwitterOEmbedApi extends BaseService implements TwitterOEmbedApi {
     List<String>? relatedScreenNames,
     ContentTheme? theme,
     String? borderColor,
-    ContentWidgetType? widgetType,
+    TimelineWidgetType? widgetType,
     bool? dnt,
   }) async {
     final response = await super.get(

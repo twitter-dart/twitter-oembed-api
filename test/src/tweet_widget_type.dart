@@ -3,10 +3,10 @@
 // modification, are permitted provided the conditions.
 
 import 'package:test/test.dart';
-import 'package:twitter_oembed_api/src/content_widget_type.dart';
+import 'package:twitter_oembed_api/src/tweet_widget_type.dart';
 
 void main() {
   test('.name', () {
-    expect(ContentWidgetType.video.name, 'video');
+    expect(TweetWidgetType.video.name, 'video');
   });
 }

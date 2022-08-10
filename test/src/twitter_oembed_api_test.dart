@@ -36,18 +36,55 @@ void main() {
   });
 
   group('.publishEmbeddedTimeline', () {
-    test('normal case', () async {
+    test('normal case with screen name', () async {
       final twitterApi = TwitterOEmbedApi();
 
       final embeddedTimeline = await twitterApi.publishEmbeddedTimeline(
-        screenName: 'Twiterdev',
+        screenName: 'TwitterDev',
       );
 
       expect(
           embeddedTimeline.html,
-          '<a class="twitter-timeline" href="https://twitter.com/Twiterdev?ref_src=twsrc%5Etfw">Tweets by Twiterdev</a>\n'
+          '<a class="twitter-timeline" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets by TwitterDev</a>\n'
           '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>\n');
-      expect(embeddedTimeline.url, 'https://twitter.com/Twiterdev');
+      expect(embeddedTimeline.url, 'https://twitter.com/TwitterDev');
+    });
+
+    test('normal case with list name', () async {
+      final twitterApi = TwitterOEmbedApi();
+
+      final embeddedTimeline = await twitterApi.publishEmbeddedTimeline(
+        screenName: 'TwitterDev',
+        listName: 'national-parks',
+      );
+
+      expect(
+          embeddedTimeline.html,
+          '<a class="twitter-timeline" href="https://twitter.com/TwitterDev/lists/national-parks?ref_src=twsrc%5Etfw">A Twitter List by TwitterDev</a>\n'
+          '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>\n');
+      expect(embeddedTimeline.url,
+          'https://twitter.com/TwitterDev/lists/national-parks');
+    });
+
+    test('when screen name is invalid', () {
+      final twitterApi = TwitterOEmbedApi();
+
+      expect(
+        () async => await twitterApi.publishEmbeddedTimeline(screenName: ''),
+        throwsA(isA<TwitterOEmbedException>()),
+      );
+    });
+
+    test('when list name is invalid', () {
+      final twitterApi = TwitterOEmbedApi();
+
+      expect(
+        () async => await twitterApi.publishEmbeddedTimeline(
+          screenName: 'Twiterdev',
+          listName: '',
+        ),
+        throwsA(isA<TwitterOEmbedException>()),
+      );
     });
   });
 }
