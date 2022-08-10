@@ -124,7 +124,6 @@ With this feature, you can easily show the following beautiful tweet view in the
 
 ![embedded tweet](https://user-images.githubusercontent.com/13072231/183929154-152b06fa-454b-4d71-bf82-7522887c5109.png)
 
-
 ### 1.3.2. [Embedded Timeline](https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview)
 
 | Method                                                                                                                                              |
@@ -132,7 +131,7 @@ With this feature, you can easily show the following beautiful tweet view in the
 | [publishEmbeddedTimeline](https://pub.dev/documentation/twitter_oembed_api/latest/twitter_oembed_api/TwitterOEmbedApi/publishEmbeddedTimeline.html) |
 
 **Embedded timelines** are an easy way to embed Tweets on your website in a compact, linear view. Choose between a profile timeline to get the latest Tweets from a Twitter account, or a List timeline containing a curated list of Twitter accounts.
-An embedded timeline consists of two parts: including an embed code that links your webpage to the timeline on Twitter.com, and the Twitter for Websites JavaScript to transform the link into a fully-rendered timeline.
+An **embedded timeline** consists of two parts: including an embed code that links your webpage to the timeline on Twitter.com, and the Twitter for Websites JavaScript to transform the link into a fully-rendered timeline.
 
 With this feature, you can easily show the following beautiful timeline view in the Flutter app.
 
