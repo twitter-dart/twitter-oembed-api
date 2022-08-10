@@ -5,7 +5,6 @@
 import 'package:test/test.dart';
 import 'package:twitter_oembed_api/src/twitter_oembed_api.dart';
 import 'package:twitter_oembed_api/src/twitter_oembed_exception.dart';
-import 'package:twitter_oembed_api/twitter_oembed_api.dart';
 
 void main() {
   group('.publishEmbeddedTweet', () {
