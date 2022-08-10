@@ -8,10 +8,10 @@ import 'base_service.dart';
 import 'content_align.dart';
 import 'content_language.dart';
 import 'content_theme.dart';
-import 'timeline_widget_type.dart';
-import 'tweet_widget_type.dart';
 import 'embedded_timeline.dart';
 import 'embedded_tweet.dart';
+import 'timeline_widget_type.dart';
+import 'tweet_widget_type.dart';
 import 'twitter_oembed_exception.dart';
 
 abstract class TwitterOEmbedApi {
