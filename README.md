@@ -36,15 +36,19 @@
     - [1.2.1. Install Library](#121-install-library)
     - [1.2.2. Import](#122-import)
     - [1.2.3. Implementation](#123-implementation)
-  - [1.3. Supported Endopoints 👀](#13-supported-endopoints-)
+  - [1.3. Supported Features 👀](#13-supported-features-)
+    - [1.3.1. Embedded Tweet](#131-embedded-tweet)
+    - [1.3.2. Embedded Timeline](#132-embedded-timeline)
   - [1.4. Contribution 🏆](#14-contribution-)
-  - [1.5. Related Contents 📢](#15-related-contents-)
+  - [1.5. Related Libraries 📢](#15-related-libraries-)
   - [1.6. License 🔑](#16-license-)
   - [1.7. More Information 🧐](#17-more-information-)
 
 <!-- /TOC -->
 
 # 1. Guide 🌎
+
+This library provides the easiest way to use the [Twitter oEmbed API](https://developer.twitter.com/en/docs/twitter-for-websites/oembed-api) in Dart and Flutter apps.
 
 **Show some ❤️ and star the repo to support the project.**
 
@@ -74,7 +78,65 @@ import 'package:twitter_oembed_api/twitter_oembed_api';
 
 ### 1.2.3. Implementation
 
-## 1.3. Supported Endopoints 👀
+```dart
+import 'package:twitter_oembed_api/twitter_oembed_api.dart';
+
+Future<void> main() async {
+  final twitterApi = TwitterOEmbedApi();
+
+  try {
+    // You can get the embedded tweet by specifying the tweet ID.
+    final embeddedTweet = await twitterApi.publishEmbeddedTweet(
+      tweetId: '507185938620219395',
+      maxWidth: 550,
+      align: ContentAlign.center,
+    );
+
+    print(embeddedTweet.html);
+
+    // You can get the embedded timeline by specifying the screen name.
+    // Or the embedded timeline of the list.
+    final embeddedTimeline = await twitterApi.publishEmbeddedTimeline(
+      screenName: 'TwitterDev',
+      theme: ContentTheme.dark,
+    );
+
+    print(embeddedTimeline.html);
+  } on TwitterOEmbedException catch (e) {
+    print(e);
+  }
+}
+```
+
+## 1.3. Supported Features 👀
+
+### 1.3.1. [Embedded Tweet](https://developer.twitter.com/en/docs/twitter-for-websites/embedded-tweets/overview)
+
+| Method                                                                                                                                        |
+| --------------------------------------------------------------------------------------------------------------------------------------------- |
+| [publishEmbeddedTweet](https://pub.dev/documentation/twitter_oembed_api/latest/twitter_oembed_api/TwitterOEmbedApi/publishEmbeddedTweet.html) |
+
+**Embedded Tweets** bring your pick of content from Twitter into your website articles. An **embedded tweet** includes photos, video and cards media created for display on Twitter, and can even stream live video from Periscope. All aspects of Twitter’s display requirements are handled for you by using our tools; author attribution, Tweet actions, hashtags, mentions, and other key components of the Twitter experience.
+
+The returned HTML snippet will be automatically recognized as an **embedded tweet** when [Twitter's widget JavaScript is included on the page](https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/overview).
+
+With this feature, you can easily show the following beautiful tweet view in the Flutter app.
+
+![embedded tweet](https://user-images.githubusercontent.com/13072231/183929154-152b06fa-454b-4d71-bf82-7522887c5109.png)
+
+
+### 1.3.2. [Embedded Timeline](https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview)
+
+| Method                                                                                                                                              |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [publishEmbeddedTimeline](https://pub.dev/documentation/twitter_oembed_api/latest/twitter_oembed_api/TwitterOEmbedApi/publishEmbeddedTimeline.html) |
+
+**Embedded timelines** are an easy way to embed Tweets on your website in a compact, linear view. Choose between a profile timeline to get the latest Tweets from a Twitter account, or a List timeline containing a curated list of Twitter accounts.
+An embedded timeline consists of two parts: including an embed code that links your webpage to the timeline on Twitter.com, and the Twitter for Websites JavaScript to transform the link into a fully-rendered timeline.
+
+With this feature, you can easily show the following beautiful timeline view in the Flutter app.
+
+![embedded timeline](https://user-images.githubusercontent.com/13072231/183933383-d1423e92-9593-4dcf-9d02-0666b3b9de1d.png)
 
 ## 1.4. Contribution 🏆
 
@@ -97,14 +159,15 @@ Or you can create a [discussion](https://github.com/twitter-dart/twitter-oembed-
 
 **Feel free to join this development, diverse opinions make software better!**
 
-## 1.5. Related Contents 📢
+## 1.5. Related Libraries 📢
 
-We also provide the following libraries related to Twitter!
+We also provide the following powerful libraries related to Twitter! 🐦
 
 | Library                 | Description                                                                                                                                                                                                                                            | Links                                                                                                                       |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | **twitter_api_v2**      | The easiest way to using [Twitter API v2.0](https://developer.twitter.com/en/docs/twitter-api/data-dictionary/introduction) with Dart and Flutter. Strong support for all [v2.0 endpoints](https://developer.twitter.com/en/docs/api-reference-index). | [GitHub](https://github.com/twitter-dart/twitter-api-v2) </br> [Pub.dev](https://pub.dev/packages/twitter_api_v2)           |
 | **twitter_oauth2_pkce** | This is the easiest way to obtain a Twitter access token using the [OAuth 2.0 PKCE](https://developer.twitter.com/en/docs/authentication/oauth-2-0/authorization-code) method.                                                                         | [GitHub](https://github.com/twitter-dart/twitter-oauth2-pkce) </br> [Pub.dev](https://pub.dev/packages/twitter_oauth2_pkce) |
+| **twitter_cards**       | This library provides the easiest way to integrate [Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) into your Flutter Web app.                                                                  | [GitHub](https://github.com/twitter-dart/twitter-cards) </br> [Pub.dev](https://pub.dev/packages/twitter_cards)             |
 
 ## 1.6. License 🔑
 
