@@ -4,8 +4,6 @@
 
 import 'package:http/http.dart' as http;
 
-import 'serializable.dart';
-
 abstract class _Service {
   Future<http.Response> get({
     Map<String, dynamic> queryParameters = const {},

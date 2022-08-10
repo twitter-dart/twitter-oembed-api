@@ -2,9 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'serializable.dart';
-
-enum ContentLanguage implements Serializable {
+enum ContentLanguage {
   /// `en`
   english('en'),
 
@@ -107,8 +105,7 @@ enum ContentLanguage implements Serializable {
   /// `zh-tw`
   traditionalChinese('zh-tw');
 
-  @override
-  final String value;
+  final String code;
 
-  const ContentLanguage(this.value);
+  const ContentLanguage(this.code);
 }
