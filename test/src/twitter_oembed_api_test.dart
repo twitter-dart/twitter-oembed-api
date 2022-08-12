@@ -12,6 +12,7 @@ void main() {
       final twitterApi = TwitterOEmbedApi();
 
       final embeddedTweet = await twitterApi.publishEmbeddedTweet(
+        screenName: 'Interior',
         tweetId: '507185938620219395',
       );
 
@@ -29,7 +30,10 @@ void main() {
       final twitterApi = TwitterOEmbedApi();
 
       expect(
-        () async => await twitterApi.publishEmbeddedTweet(tweetId: ''),
+        () async => await twitterApi.publishEmbeddedTweet(
+          screenName: '',
+          tweetId: '',
+        ),
         throwsA(isA<TwitterOEmbedException>()),
       );
     });

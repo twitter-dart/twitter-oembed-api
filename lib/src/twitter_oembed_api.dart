@@ -21,6 +21,9 @@ abstract class TwitterOEmbedApi {
   ///
   /// ## Parameters
   ///
+  /// - [screenName]: The screen name of the user who has the tweet to be
+  ///                 embedded.
+  ///
   /// - [tweetId]: The Tweet ID to be embedded.
   ///
   /// - [maxWidth]: The maximum width of a rendered Tweet in whole pixels.
@@ -76,6 +79,7 @@ abstract class TwitterOEmbedApi {
   ///
   /// - https://developer.twitter.com/en/docs/twitter-for-websites/oembed-api#item1
   Future<EmbeddedTweet> publishEmbeddedTweet({
+    required String screenName,
     required String tweetId,
     int? maxWidth,
     bool? hideMedia,
@@ -158,6 +162,7 @@ abstract class TwitterOEmbedApi {
 class _TwitterOEmbedApi extends BaseService implements TwitterOEmbedApi {
   @override
   Future<EmbeddedTweet> publishEmbeddedTweet({
+    required String screenName,
     required String tweetId,
     int? maxWidth,
     bool? hideMedia,
@@ -173,7 +178,7 @@ class _TwitterOEmbedApi extends BaseService implements TwitterOEmbedApi {
   }) async {
     final response = await super.get(
       queryParameters: {
-        'url': 'https://twitter.com/Interior/status/$tweetId',
+        'url': 'https://twitter.com/$screenName/status/$tweetId',
         'maxwidth': maxWidth,
         'hide_media': hideMedia,
         'hide_thread': hideThread,

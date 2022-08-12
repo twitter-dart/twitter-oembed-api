@@ -1,6 +1,6 @@
 name: twitter_oembed_api
 description: This library provides the easiest way to use the Twitter oEmbed API in Dart and Flutter apps.
-version: 0.0.1
+version: 0.1.0
 repository: https://github.com/twitter-dart/twitter-oembed-api
 issue_tracker: https://github.com/twitter-dart/twitter-oembed-api/issues
 

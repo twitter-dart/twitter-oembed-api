@@ -87,6 +87,7 @@ Future<void> main() async {
   try {
     // You can get the embedded tweet by specifying the tweet ID.
     final embeddedTweet = await twitterApi.publishEmbeddedTweet(
+      screenName: 'Interior',
       tweetId: '507185938620219395',
       maxWidth: 550,
       align: ContentAlign.center,
